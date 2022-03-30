@@ -1,0 +1,7 @@
+﻿email,firstName,lastName,password,confPassword,errorInput,emailInputError,firtnameInputError,lastnameInputError,passwordInputError,confirmPasswordInputError
+ion5@ion.ro,ion,ion,1234567,,Va rugam sa completati toate campurile obligatorii.,,,,,Parolele nu corespund.
+ion5@ion.ro,ion,ion,1234567,12345678,Va rugam sa completati toate campurile obligatorii.,,,,,Parolele nu corespund.
+ion5@ion.ro,ion,ion,,,Va rugam sa completati toate campurile obligatorii.,,,,Parola este obligatorie.,Parolele nu corespund.
+ion5@ion.ro,,,1234567,1234567,Va rugam sa completati toate campurile obligatorii.,,Prenumele este obligatoriu.,Numele este obligatoriu.,,
+,ion,ion,1234567,1234567,Va rugam sa completati toate campurile obligatorii.,Adresa de email este obligatorie.,,,,
+,,,,,Va rugam sa completati toate campurile obligatorii.,Adresa de email este obligatorie.,Prenumele este obligatoriu.,Numele este obligatoriu.,Parola este obligatorie.,Parolele nu corespund.

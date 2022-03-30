@@ -1,0 +1,2 @@
+﻿email,firstName,lastName,password,confPassword,errorInput
+ion@ion.ro,ion,ion,1234567,1234567,Adresa de email exista in baza de date. Va rugam sa va logati.

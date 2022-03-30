@@ -1,0 +1,5 @@
+﻿email,password,newEmail,newFirstname,newLastname,newPhone,errorMessage,invalidField
+ion@ion.ro,123,ion,ionel,ionel,1234567890,Va rugam sa completati toate campurile.,ion
+ion@ion.ro,123,ion@ion,ionel,ionel,1234567890,Va rugam sa completati toate campurile.,ion@ion
+ion@ion.ro,123,ion@ion.ro,ionel,i,1234567890,Va rugam sa completati toate campurile.,i
+ion@ion.ro,123,ion@ion.ro,i,ionel,12345,Va rugam sa completati toate campurile.,12345
