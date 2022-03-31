@@ -1,16 +1,18 @@
 ﻿using BikeProject.Utilities;
 using BikeProjects.Tests;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace BikeProject.Tests
 {
-    class AddItemToCartTests : BaseTest
+    class AddItemToFavorite : BaseTest
     {
         string url = FrameworkConstants.GetUrl();
 
-        //[TestCase("ion@ion.ro", "123", "casca")]
         [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\searchValidItemData.csv" })]
-        public void BaseAddToCart(string item, string email, string password)
+        public void BaseAddToFavorite(string item, string email, string password)
         {
             testName = TestContext.CurrentContext.Test.Name;
             _test = _extent.CreateTest(testName);
@@ -26,10 +28,10 @@ namespace BikeProject.Tests
             PageModels.SearchItem searchItem = new PageModels.SearchItem(_driver);
             searchItem.GetAnItem(item);
 
-            PageModels.AddItemToCart addItemToCart = new PageModels.AddItemToCart(_driver);
-            addItemToCart.AddProductToCart();
+            PageModels.AddItemToFavorite addItemToFavorite = new PageModels.AddItemToFavorite(_driver);
+            addItemToFavorite.AddProductToFavorite();
 
-            Assert.IsTrue(addItemToCart.GetOrder());
+            Assert.IsTrue(addItemToFavorite.GetFavoriteLabelText());
         }
     }
 }

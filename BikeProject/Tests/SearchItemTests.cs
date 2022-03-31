@@ -8,7 +8,7 @@ namespace BikeProject.Tests
     {
         string url = FrameworkConstants.GetUrl();
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\searchValidItemData.csv" })]
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\searchValidItemData.csv" })]
         public void BasicSearchValidItem(string item, string email, string password)
         {
             _driver.Navigate().GoToUrl(url);
@@ -30,7 +30,7 @@ namespace BikeProject.Tests
             _test = _extent.CreateTest(testName);
         }
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\searchInvalidItemData.csv" })]
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\searchInvalidItemData.csv" })]
         public void BasicSearchInvalidItem(string item, string email, string password)
         {
             _driver.Navigate().GoToUrl(url);

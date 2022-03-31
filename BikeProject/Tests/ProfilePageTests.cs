@@ -9,7 +9,7 @@ namespace BikeProject.Tests
     {
         string url = FrameworkConstants.GetUrl();
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\updateProfileMissingData.csv" })]
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\updateProfileMissingData.csv" })]
         public void BasicProfileUpdateWithMissingData(string email, string password, string newEmail, string newFirstname, string newLastname, string newPhone, string errorMessage)
         {
             _driver.Navigate().GoToUrl(url);
@@ -32,7 +32,7 @@ namespace BikeProject.Tests
             _test = _extent.CreateTest(testName);
         }
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\updateProfileInvalideData.csv" })]
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\updateProfileInvalideData.csv" })]
         public void BasicProfileUpdateWithInvalidData(string email, string password, string newEmail, string newFirstname, string newLastname, string newPhone, string errorMessage, string invalidField)
         {
             _driver.Navigate().GoToUrl(url);
@@ -55,7 +55,7 @@ namespace BikeProject.Tests
             _test = _extent.CreateTest(testName);
         }
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\updateProfileValideData.csv" })]
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\updateProfileValideData.csv" })]
         public void BasicProfileUpdateWithValidData(string email, string password, string newEmail, string newFirstname, string newLastname, string newPhone, string message)
         {
             _driver.Navigate().GoToUrl(url);
@@ -75,7 +75,7 @@ namespace BikeProject.Tests
             _test = _extent.CreateTest(testName);
         }
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\changePasswordData.csv" })]
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\changePasswordData.csv" })]
         public void BasicChangePassword(string email, string password, string oldPassword, string newPassword, string confirmPassword, string errorMessage, string invalidData)
         {
             _driver.Navigate().GoToUrl(url);

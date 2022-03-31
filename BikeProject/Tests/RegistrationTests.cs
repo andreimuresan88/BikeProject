@@ -9,8 +9,8 @@ namespace BikeProject.Tests
 
         string url = FrameworkConstants.GetUrl();
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\registrationInvalidData.csv" })]
-        public void BasicResistration(string email, string firstName, string lastName, string password, string confPassword, string errorInput,
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\registrationInvalidData.csv" })]
+        public void BasicResistrationWithInvalidData(string email, string firstName, string lastName, string password, string confPassword, string errorInput,
                                     string emailInputError, string firtnameInputError, string lastnameInputError, string passwordInputError, string confirmPasswordInputError)
         {
             _driver.Navigate().GoToUrl(url);
@@ -36,7 +36,7 @@ namespace BikeProject.Tests
             _test = _extent.CreateTest(testName);
         }
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\registrationWithSameData.csv" })]
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\registrationWithSameData.csv" })]
         public void BasicResistrationWithTheSameCredentials(string email, string firstName, string lastName, string password, string confPassword, string errorInput)
         {
             _driver.Navigate().GoToUrl(url);

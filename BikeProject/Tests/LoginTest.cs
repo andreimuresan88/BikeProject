@@ -8,7 +8,7 @@ namespace BikeProject.Tests
     {
         string url = FrameworkConstants.GetUrl();
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\invalidLogin.csv" })]
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\invalidLogin.csv" })]
         public void BasicLoginWithInvalidCredentials(string email, string password, string errorInput)
         {
             _driver.Navigate().GoToUrl(url);
@@ -28,8 +28,8 @@ namespace BikeProject.Tests
             _test = _extent.CreateTest(testName);
         }
 
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\validLogin.csv" })]
-        public void BasicLoginWithValidCredentials(string email, string password, string emailAfterLogin)
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\validLogin.csv" })]
+        public void BasicLoginWithValidCredentials(string email, string password)
         {
             _driver.Navigate().GoToUrl(url);
             
@@ -40,7 +40,7 @@ namespace BikeProject.Tests
             PageModels.LoginPage login = new PageModels.LoginPage(_driver);
 
             login.Login(email, password);
-            Assert.AreEqual(emailAfterLogin, Utils.GetTextFromPage(_driver, login.EmailAfterLoginSelector));
+            Assert.AreEqual(email, Utils.GetTextFromPage(_driver, login.EmailAfterLoginSelector));
 
             testName = TestContext.CurrentContext.Test.Name;
             _test = _extent.CreateTest(testName);

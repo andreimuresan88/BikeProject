@@ -296,7 +296,7 @@ namespace BikeProject
             return sb.ToString();
         }
 
-        private static IEnumerable<TestCaseData> GetCredentialsDataCsv(string filename)
+        private static IEnumerable<TestCaseData> GetTestDataCsv(string filename)
         {
             foreach (var values in Utils.GetGenericData(filename))
             {

@@ -7,9 +7,9 @@ namespace BikeProject.Tests
     class LogoutTests : BaseTest
     {
         string url = FrameworkConstants.GetUrl();
-        //[Description("Logout test")]
-        [Test, Description("tesssst"), TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\validLogin.csv" })]
-        public void BasicLogout(string email, string password, string emailText)
+ 
+        [Test, TestCaseSource(typeof(Utils), "GetTestDataCsv", new object[] { "TestData\\validLogin.csv" })]
+        public void BasicLogout(string email, string password)
         {
             _driver.Navigate().GoToUrl(url);
             PageModels.LandingPage landingPage = new PageModels.LandingPage(_driver);

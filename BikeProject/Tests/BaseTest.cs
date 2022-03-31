@@ -15,7 +15,6 @@ namespace BikeProjects.Tests
 {
     class BaseTest
     {
-        //public IWebDriver driver;
         ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
         public IWebDriver _driver;
         public static ExtentReports _extent;
@@ -25,12 +24,12 @@ namespace BikeProjects.Tests
         [OneTimeSetUp]
         protected void ExtentStart()
         {
-            var path = System.Reflection.Assembly.GetCallingAssembly().CodeBase; // path to the location of the tests that are running
-            var actualPath = path.Substring(0, path.LastIndexOf("bin")); // get bin folder
+            var path = System.Reflection.Assembly.GetCallingAssembly().CodeBase; 
+            var actualPath = path.Substring(0, path.LastIndexOf("bin")); 
             var projectPath = new Uri(actualPath).LocalPath;
             Directory.CreateDirectory(projectPath.ToString() + "Reports");
             DateTime time = DateTime.Now;
-            var reportPath = projectPath + "Reports\\report_" + time.ToString("h_mm_ss") + ".html";
+            var reportPath = projectPath + "Reports\\report_" + time.ToString("HH_mm_ss") + ".html";
             var htmlReporter = new ExtentV3HtmlReporter(reportPath);
             _extent = new ExtentReports();
             _extent.AttachReporter(htmlReporter);
@@ -50,8 +49,7 @@ namespace BikeProjects.Tests
         [TearDown]
         public void Teardown()
         {
-            var currentStatus = TestContext.CurrentContext.Result.Outcome.Status; // current test status (PASS/FAIL/Inconclusive/Skipped)
-            //bool passed = currentStatus == NUnit.Framework.Interfaces.TestStatus.Passed; // can be used to create a method with custom message
+            var currentStatus = TestContext.CurrentContext.Result.Outcome.Status;
             var currentStackTrace = TestContext.CurrentContext.Result.StackTrace;
             var stackTrace = string.IsNullOrEmpty(currentStackTrace) ? "" : currentStackTrace;
             Status logstatus = Status.Pass;
@@ -66,7 +64,6 @@ namespace BikeProjects.Tests
                         var screenshotEntity = Utils.CaptureScreenShot(_driver, filename);
                         _test.Log(Status.Fail, "Fail");
                         _test.Fail("Test failed: ", screenshotEntity);
-                        //_test.Log(Status.Fail, _test.AddScreenCaptureFromPath("Screenshots\\" + filename).ToString());
                         break;
                     }
                 case NUnit.Framework.Interfaces.TestStatus.Passed:
@@ -103,7 +100,6 @@ namespace BikeProjects.Tests
         [OneTimeTearDown]
         public void AllTeardown()
         {
-            // writes / saves report.html on the disk!
             _extent.Flush();
         }
 
