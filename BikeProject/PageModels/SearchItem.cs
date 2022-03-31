@@ -11,6 +11,7 @@ namespace BikeProject.PageModels
         const string searchButtonSelector = "_doSearch";
         string resultAfterSearchSelector = "#wrapper > div.container-h.container-bg.-g-breadcrumbs-container > div > ol > li:nth-child(2) > a";
         const string invalidSearchMessageSelector = "#result-page > h1";
+        const string itemSelector = "//*[@id='category-page']/div/div[3]/div[2]/div[1]/div";
 
         public string ResultAfterSearchSelector { get => resultAfterSearchSelector; set => resultAfterSearchSelector = value; }
 
@@ -28,11 +29,11 @@ namespace BikeProject.PageModels
             searchButtonElement.Click();
         }
 
-/*        public string GetResult()
+        public int GetResultItemsCount()
         {
-            var resultAfterSearchElement = driver.FindElement(By.CssSelector(ResultAfterSearchSelector));
-            return resultAfterSearchElement.Text;
-        }*/
+            var items = driver.FindElements(By.XPath(itemSelector));
+            return items.Count;
+        }
 
         public bool GetInvalidResult()
         {

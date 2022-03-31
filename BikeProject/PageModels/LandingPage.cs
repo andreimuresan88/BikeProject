@@ -12,6 +12,7 @@ namespace BikeProject.PageModels
         
         public LandingPage(IWebDriver driver) : base(driver)
         {
+
         }
 
         public void AcceptCookie()

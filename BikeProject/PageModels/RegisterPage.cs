@@ -1,7 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 
 namespace BikeProject.PageModels
@@ -10,21 +7,21 @@ namespace BikeProject.PageModels
     {
         const string newAccountLabelSelector = "#register-page > div > div.new-client-section.col-sm-7 > div.title-carousel > h1";
         const string loginLabelSelector = "#register-page > div > div.old-client-section.col-sm-5.pull-right > div > div.title-carousel > h1"; 
-        const string registerButtonSelector = "doRegister";//id
-        const string emailInputSelector = "#__emailRegister";//id
-        const string firstNameInputSelector = "__firstnameRegister";//id
-        const string lastNameInputSelector = "__lastnameRegister";//id
-        const string passwordInputSelector = "__passwordRegister";//id
-        const string conformPasswordInputSelector = "__confirmPasswordRegister";//id
-        const string termsCheckboxSelector = "agreePersonalInformation";//name
-        const string submitButtonSelector = "doRegister";//id
-        const string emailInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(1) > span";//css
-        const string firstNameInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(3) > span";//css
-        const string lastNameInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(2) > span";//css
-        const string passwordInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(4) > span";//css
-        const string confirmPasswordInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(5) > span";//css
-        const string errorInputSelector = "#_submitRegistration > div > p";//css
-        const string emailAddressAlreadyExist = "#_submitRegistration > div > div > div:nth-child(1) > span";//css
+        const string registerButtonSelector = "doRegister";
+        const string emailInputSelector = "#__emailRegister";
+        const string firstNameInputSelector = "__firstnameRegister";
+        const string lastNameInputSelector = "__lastnameRegister";
+        const string passwordInputSelector = "__passwordRegister";
+        const string conformPasswordInputSelector = "__confirmPasswordRegister";
+        const string termsCheckboxSelector = "agreePersonalInformation";
+        const string submitButtonSelector = "doRegister";
+        const string emailInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(1) > span";
+        const string firstNameInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(3) > span";
+        const string lastNameInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(2) > span";
+        const string passwordInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(4) > span";
+        const string confirmPasswordInputErrorSelector = "#_submitRegistration > div > div > div:nth-child(5) > span";
+        const string errorInputSelector = "#_submitRegistration > div > p";
+        const string emailAddressAlreadyExist = "#_submitRegistration > div > div > div:nth-child(1) > span";
 
         public RegisterPage(IWebDriver driver) : base(driver)
         {
@@ -48,29 +45,19 @@ namespace BikeProject.PageModels
             var registerButtonElement = driver.FindElement(By.Id(registerButtonSelector));
             registerButtonElement.Click();
 
-            Thread.Sleep(1000);
-
-            var emailElement = driver.FindElement(By.CssSelector(emailInputSelector));
+            var emailElement = Utils.WaitForElement(driver, 3, By.CssSelector(emailInputSelector));
             emailElement.SendKeys(email);
 
-            Thread.Sleep(1000);
-
-            var firstNameElement = driver.FindElement(By.Id(firstNameInputSelector));
+            var firstNameElement = Utils.WaitForFluentElement(driver, 1, By.Id(firstNameInputSelector));
             firstNameElement.SendKeys(firstName);
 
-            Thread.Sleep(1000);
-
-            var lastNameElement = driver.FindElement(By.Id(lastNameInputSelector));
+            var lastNameElement = Utils.WaitForFluentElement(driver, 1, By.Id(lastNameInputSelector));
             lastNameElement.SendKeys(lastName);
 
-            Thread.Sleep(1000);
-
-            var passwordElement = driver.FindElement(By.Id(passwordInputSelector));
+            var passwordElement = Utils.WaitForFluentElement(driver, 1, By.Id(passwordInputSelector));
             passwordElement.SendKeys(password);
 
-            Thread.Sleep(1000);
-
-            var conformPasswordElement = driver.FindElement(By.Id(conformPasswordInputSelector));
+            var conformPasswordElement = Utils.WaitForFluentElement(driver, 1, By.Id(conformPasswordInputSelector));
             conformPasswordElement.SendKeys(confPassword);
 
             var termsElement = driver.FindElement(By.Name(termsCheckboxSelector));

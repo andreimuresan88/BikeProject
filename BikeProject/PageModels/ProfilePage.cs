@@ -1,14 +1,9 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace BikeProject.PageModels
 {
     class ProfilePage : BasePage
     {
-        const string profilePageLabelSelector = "#wrapper > div.account-h.container-h.container-bg > div > div.account-section.clearfix.col-lg-9.col-md-9.col-sm-12.col-xs-12 > div > h3";
         const string personalDataButtonSelector = "#wrapper > div.account-h.container-h.container-bg > div > div.side-menu.col-lg-3.col-md-3.col-sm-12.col-xs-12 > div.row > ul:nth-child(4) > li:nth-child(2) > a";
         const string emailInputSelector = "#wrapper > div.account-h.container-h.container-bg > div > div.account-section.clearfix.col-lg-9.col-md-9.col-sm-12.col-xs-12 > form > div:nth-child(1) > input";
         const string firstnameInputSelector = "#wrapper > div.account-h.container-h.container-bg > div > div.account-section.clearfix.col-lg-9.col-md-9.col-sm-12.col-xs-12 > form > div:nth-child(3) > input";
@@ -72,72 +67,6 @@ namespace BikeProject.PageModels
             var saveButtonElement = driver.FindElement(By.CssSelector(saveButtonSelector));
             saveButtonElement.Submit();
         }
-
-/*        public string UpdateProfileErrorText()
-        {
-            var errorInputMessageElement = driver.FindElement(By.CssSelector(ErrorInputMessageSelector));
-            return errorInputMessageElement.Text;
-        }*/
-
-/*        public string UpdateProfileText()
-        {
-            var confUpdateTextElement = driver.FindElement(By.CssSelector(ConfUpdateTextSelector));
-            return confUpdateTextElement.Text;
-        }*/
-
-/*        public string GetEmailLabelColor()
-        {
-            var emailLabelElement = driver.FindElement(By.CssSelector(EmailLabelSelector)).GetCssValue("color");
-            return emailLabelElement;
-        }*/
-
-/*        public string GetFirstnameLabelColor()
-        {
-            var firstnameLabelElement = driver.FindElement(By.CssSelector(FirstnameLabelSelector)).GetCssValue("color");
-            return firstnameLabelElement;
-        }*/
-
-/*        public string GetLastnameLabelColor()
-        {
-            var lastnameLabelElement = driver.FindElement(By.CssSelector(LastnameLabelSelector)).GetCssValue("color");
-            return lastnameLabelElement;
-        }*/
-
-/*        public string GetPhoneLabelColor()
-        {
-            var phoneLabelElement = driver.FindElement(By.CssSelector(PhoneLabelSelector)).GetCssValue("color");
-            return phoneLabelElement;
-        }*/
-
-/*        public string ChangePasswordLabelText()
-        {
-            var changePasswordLabelElement = driver.FindElement(By.CssSelector(ChangePasswordLabelSelector));
-            return changePasswordLabelElement.Text;
-        }*/
-
-/*        public string ChangePasswordErrorText()
-        {
-            var errorInputChangePasswordMessageElement = driver.FindElement(By.CssSelector(ErrorInputChangePasswordMessageSelector));
-            return errorInputChangePasswordMessageElement.Text;
-        }*/
-
-/*        public string ChangeConfPasswordErrorColor()
-        {
-            var errorInputChangeConfPasswordMessageElement = driver.FindElement(By.CssSelector(LabelChangeConfPasswordMessageSelector)).GetCssValue("color");
-            return errorInputChangeConfPasswordMessageElement;
-        }*/
-
-/*        public string ChangeOldPasswordErrorColor()
-        {
-            var errorInputChangeOldPasswordMessageElement = driver.FindElement(By.CssSelector(LabelChangeOldPasswordMessageSelector)).GetCssValue("color");
-            return errorInputChangeOldPasswordMessageElement;
-        }*/
-
-/*        public string ChangeNewPasswordErrorColor()
-        {
-            var errorInputChangeNewPasswordMessageElement = driver.FindElement(By.CssSelector(LabelChangeNewPasswordMessageSelector)).GetCssValue("color");
-            return errorInputChangeNewPasswordMessageElement;
-        }*/
 
         public string GetEmptyField(string email, string firstname, string lastname, string phone)
         {

@@ -7,8 +7,8 @@ namespace BikeProject.Tests
     class LogoutTests : BaseTest
     {
         string url = FrameworkConstants.GetUrl();
-
-        [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\validLogin.csv" })]
+        //[Description("Logout test")]
+        [Test, Description("tesssst"), TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\validLogin.csv" })]
         public void BasicLogout(string email, string password, string emailText)
         {
             _driver.Navigate().GoToUrl(url);

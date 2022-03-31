@@ -9,7 +9,7 @@ namespace BikeProject.Tests
         string url = FrameworkConstants.GetUrl();
 
         [Test, TestCaseSource(typeof(Utils), "GetCredentialsDataCsv", new object[] { "TestData\\searchValidItemData.csv" })]
-        public void BasicSearchItem(string item, string email, string password)
+        public void BasicSearchValidItem(string item, string email, string password)
         {
             _driver.Navigate().GoToUrl(url);
 
@@ -24,6 +24,7 @@ namespace BikeProject.Tests
             searchItem.GetAnItem(item);
 
             Assert.AreEqual("Cautare : " + "\"" + item + "\"", Utils.GetTextFromPage(_driver, searchItem.ResultAfterSearchSelector));
+            Assert.Greater(searchItem.GetResultItemsCount(), 0);
 
             testName = TestContext.CurrentContext.Test.Name;
             _test = _extent.CreateTest(testName);
@@ -45,6 +46,7 @@ namespace BikeProject.Tests
             searchItem.GetAnItem(item);
 
             Assert.IsTrue(searchItem.GetInvalidResult());
+            Assert.AreEqual(searchItem.GetResultItemsCount(), 0);
 
             testName = TestContext.CurrentContext.Test.Name;
             _test = _extent.CreateTest(testName);
